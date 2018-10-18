@@ -12,3 +12,9 @@
     sudo groupadd docker
 ## Add the connected user "${USER}" to the docker group.
     sudo gpasswd -a ${USER} docker
+## 切换当前会话到新 group 或者重启 X 会话
+    newgrp - docker
+## Run this command to download the latest version of Docker Compose
+    sudo curl -L "https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+## Apply executable permissions to the binary
+    sudo chmod +x /usr/local/bin/docker-compose
