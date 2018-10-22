@@ -5,3 +5,5 @@ su root
     sudo groupadd docker
 ## Add the connected user "${USER}" to the docker group.
     sudo gpasswd -a ${USER} docker
+## 查看IO情況
+    sudo iotop
