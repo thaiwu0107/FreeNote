@@ -15,3 +15,4 @@ echo "Coordinator IP = " ${HOST_IP} &&
    docker run -d --name=adb3 --rm -p 8548:8528 -v arangodb1:/data -v /var/run/docker.sock:/var/run/docker.sock arangodb/arangodb-starter:latest --starter.address=${HOST_IP} --starter.join=${HOST_IP}
 fi
 ```
+要注意初始化的時候adb1要使用8528這個port不然其他會無法正常連線
