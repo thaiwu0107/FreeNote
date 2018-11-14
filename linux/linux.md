@@ -7,3 +7,7 @@ su root
     sudo gpasswd -a ${USER} docker
 ## 查看IO情況
     sudo iotop
+## port 佔用 殺掉8000
+    sudo lsof -t -i tcp:8000 | xargs kill -9
+## 查看 5432
+    lsof -i tcp:5432

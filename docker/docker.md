@@ -26,5 +26,24 @@
     sudo docker container prune
 ## 查询所有的容器，过滤出Exited状态的容器，列出容器ID，删除这些容器
     sudo docker rm `docker ps -a|grep Exited|awk '{print $1}'`
-## 显示所有的容器，过滤出Exited状态的容器，取出这些容器的ID，
+## 显示所有的容器，过滤出Exited状态的容器，取出这些容器的ID
     sudo docker ps -a|grep Exited|awk '{print $1}'
+## 可以順便刪除volume（ 移除你在 docker-compose.yml 裡面設定的 volume ）
+    docker-compose down -v
+## 可以在指定的Container裡面下bash指令
+    docker-compose run web bash
+## 安裝portainer
+ ```
+docker volume create portainer_data
+
+docker run --name=portainer -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
+```
+## 完整清除整個Docker內的資料(像是新安裝一樣)
+    先關閉Docker
+```
+    /etc/init.d/docker stop
+```
+    然後清掉docker檔案目錄下的所有東西...
+```
+    rm -rf /var/lib/docker/*
+```
