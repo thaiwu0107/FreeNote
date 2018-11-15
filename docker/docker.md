@@ -47,3 +47,5 @@ docker run --name=portainer -d -p 9000:9000 -v /var/run/docker.sock:/var/run/doc
 ```
     rm -rf /var/lib/docker/*
 ```
+## Docker 進入Redis Cluster裡面打Redis指令
+    docker exec -it thaiwu_redis2_1 redis-cli -h 192.168.10.210 -p 7001
