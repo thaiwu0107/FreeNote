@@ -48,4 +48,8 @@ docker run --name=portainer -d -p 9000:9000 -v /var/run/docker.sock:/var/run/doc
     rm -rf /var/lib/docker/*
 ```
 ## Docker 進入Redis Cluster裡面打Redis指令
-    docker exec -it thaiwu_redis2_1 redis-cli -h 192.168.10.210 -p 7001
+    docker exec -it thaiwu_redis2_1 redis-cli -c -h 192.168.10.210 -p 7001
+## Docker 進入Redis Cluster benchmark指令
+    docker exec -it thaiwu_redis2_1 redis-benchmark -n 1000000 -h 192.168.10.210 -p 7001 -k 1
+## Docker 安裝
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
