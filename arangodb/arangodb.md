@@ -20,13 +20,16 @@ fi
 # Docker分開每個IP設定(三台電腦)
    192.168.10.210
 ```bash
-   docker run -d --name=adb1 --rm -p 8528:8528 -v /var/run/docker.sock:/var/run/docker.sock arangodb/arangodb-starter:0.13.8 --starter.address=192.168.10.210 --docker.image=arangodb:3.3
+   docker run -d --name=adb1 --rm -p 8528:8528 -v /data2:/data -v /var/run/docker.sock:/var/run/docker.sock arangodb/arangodb-starter:0.13.9 --starter.address=192.168.10.210 --docker.image=arangodb:3.3.19
 ```
    192.168.10.166
 ```bash
-    docker run -d --name=adb2 --rm -p 8538:8528 -v /var/run/docker.sock:/var/run/docker.sock arangodb/arangodb-starter:0.13.8 --starter.address=192.168.10.166 --starter.join=192.168.10.210 --docker.image=arangodb:3.3
+    docker run -d --name=adb2 --rm -p 8538:8528 -v /data2:/data -v /var/run/docker.sock:/var/run/docker.sock arangodb/arangodb-starter:0.13.9 --starter.address=192.168.10.166 --starter.join=192.168.10.210  --docker.image=arangodb:3.3.19
 ```
    192.168.10.180
 ```bash
-    docker run -d --name=adb3 --rm -p 8548:8528 -v /var/run/docker.sock:/var/run/docker.sock arangodb/arangodb-starter:0.13.8 --starter.address=192.168.10.180 --starter.join=192.168.10.210 --docker.image=arangodb:3.3
+    docker run -d --name=adb3 --rm -p 8548:8528 -v /var/run/docker.sock:/var/run/docker.sock arangodb/arangodb-starter:0.13.9 --starter.address=192.168.10.180 --starter.join=192.168.10.210 --docker.image=arangodb:3.3.19
 ```
+--cluster.start-coordinator=false
+
+docker run -d --name=adb1 --rm -p 8528:8528 -v /data2:/data -v /var/run/docker.sock:/var/run/docker.sock arangodb/arangodb-starter:0.13.9 --starter.mode=single --starter.address=192.168.10.210 --docker.image=arangodb:3.3.19
